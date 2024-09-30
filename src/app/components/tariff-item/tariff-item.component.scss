@@ -1,0 +1,274 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+
+.tariff-card {
+  display: flex;
+  flex-direction: row; // Arrange items horizontally for mobile
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+
+  .tariff-number {
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px; 
+    align-content: center;
+  }
+
+  .tariff-name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px; 
+    align-content: center;
+    white-space: nowrap;       
+    overflow: hidden;         
+    text-overflow: ellipsis;   
+    max-width: 25%;   
+  }
+
+  .tariff-speed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .speed:nth-child(2) {
+      // Hide upload speed in mobile view
+      display: none;
+    }
+
+    .speed {
+      display: flex;
+      flex-direction: column;
+
+      .upload-speed {
+        display: none;
+      }
+
+      .speed-label {
+        display: none;
+      }
+
+      .icon-speed {
+        display: flex;
+        align-items: center;
+
+        i {
+          margin-right: 5px;
+        }
+
+        .speed-value {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .tariff-benefits {
+    display: none;
+  }
+
+  .tariff-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .tariff-button {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+
+      span {
+        display: none; // Hide tariff details text on mobile
+      }
+
+      span.arrow-icon {
+        display: inline; // Show arrow on mobile
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+/* Tablet view: 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tariff-card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+
+    .tariff-number {
+      flex: 0 0 50px;
+      text-align: left;
+      font-size: 16px; // Increase font size
+      align-content: flex-start;
+    }
+
+    .tariff-name {
+      flex: 0.5;
+      text-align: left;
+      font-size: 16px; // Increase font size
+      align-content: flex-start;
+    }
+
+    .tariff-speed {
+      flex: 0.5;
+      gap: 4px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .speed:nth-child(2) {
+        // Hide upload speed in mobile view
+        display: inline;
+      }
+
+      .speed-label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+
+      /* Square border for the icon and right-curved border for speed value */
+      i {
+        border: 2px solid #ccc;
+        padding: 8px;
+        border-radius: 0;
+        /* Square border */
+      }
+
+      .speed-value {
+        border: 1px solid #ccc;
+        margin-left: -4px;
+        padding: 6px;
+        border-left: none;
+        /* Remove left border to join with icon */
+        border-radius: 0 15px 15px 0;
+        /* Right-side rounded */
+      }
+    }
+
+    .tariff-benefits {
+      display: none; // Hide benefits on tablet view
+    }
+
+    .tariff-price {
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      font-size: 16px;
+
+      .tariff-button {
+        margin-top: 10px;
+
+        span {
+          display: inline; // show tariff details text on mobile
+        }
+      }
+    }
+  }
+}
+
+/* Desktop view: 1025px and above */
+@media (min-width: 1025px) {
+  .tariff-card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
+    .tariff-number {
+      flex: 0 0 50px;
+      text-align: left;
+      font-size: 18px; // Increase font size
+      align-content: flex-start;
+    }
+    .tariff-name {
+      flex: 1;
+      text-align: left;
+      font-size: 18px; // Larger font for desktop
+      align-content: flex-start;
+    }
+
+    .tariff-speed {
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .speed:nth-child(2) {
+        // Hide upload speed in mobile view
+        display: flex;
+      }
+
+      .speed {
+        flex: 1;
+        margin-right: 20px;
+
+        .icon-speed {
+          display: flex;
+          align-items: center;
+        }
+
+        .speed-label {
+          display: block;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        /* Square border for the icon and right-curved border for speed value */
+        i {
+          border: 2px solid #ccc;
+          padding: 8px;
+          border-radius: 0;
+        }
+
+        .speed-value {
+          border: 1px solid #ccc;
+          margin-left: -4px;
+          padding: 6px;
+          border-left: none;
+          border-radius: 0 15px 15px 0;
+        }
+      }
+    }
+
+    .tariff-benefits {
+      display: flex;
+      flex: 1;
+      margin-bottom: 10px;
+
+      ul {
+        padding-left: 20px;
+
+        li {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .tariff-price {
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 18px;
+
+      .tariff-button {
+        margin-top: 10px;
+
+        span {
+          display: inline; // show tariff details text on mobile
+        }
+      }
+    }
+  }
+}

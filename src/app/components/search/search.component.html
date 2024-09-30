@@ -1,0 +1,33 @@
+<div class="search-container">
+  <div [formGroup]="filterForm" class="search-form" [class.active]="isFormVisible">
+    <!-- Price Range Slider -->
+    <div class="filter-item">
+      <label for="priceRange">Price Range (€):</label>
+      <input type="range" id="priceRange" min="0" max="200" step="10" formControlName="priceRange" />
+      <span>{{ filterForm.value.priceRange }} €</span>
+    </div>
+
+    <!-- Sort by Dropdown -->
+    <div class="filter-item">
+      <label for="sortBy">Sort By:</label>
+      <select id="sortBy" formControlName="sortBy">
+        <option value="priceAsc">Price: Low to High</option>
+        <option value="priceDesc">Price: High to Low</option>
+        <option value="downloadSpeed">Download Speed: High to Low</option>
+        <option value="uploadSpeed">Upload Speed: High to Low</option>
+      </select>
+    </div>
+
+    <!-- Search by Name -->
+    <div class="filter-item">
+      <label for="searchTerm">Search:</label>
+      <input id="searchTerm" type="text" formControlName="searchTerm" placeholder="Search by tariff name" />
+    </div>
+    <button type="button" class="reset-button" (click)="resetFilters()">Reset</button>
+  </div>
+  <!--Filter button available only in mobile devices-->
+  <button class="filter-toggle" (click)="toggleForm()">
+    {{ isFormVisible ? 'cancel' : 'Filter' }}
+  </button>
+
+</div>

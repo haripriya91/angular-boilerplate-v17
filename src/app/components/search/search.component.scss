@@ -1,0 +1,128 @@
+.search-container {
+  display: flex;
+  justify-content: center; 
+  padding: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile view */
+  gap: 15px; 
+  width: 100%; 
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+}
+
+.filter-item label {
+  font-weight: bold; 
+  margin-bottom: 5px; 
+}
+
+input[type="range"],
+select,
+input[type="text"] {
+  padding: 8px; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  font-size: 1rem;
+  width: 100%; 
+}
+
+.reset-button {
+  padding: 10px; 
+  background-color: #007bff; 
+  color: white;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for button */
+.reset-button:hover {
+  background-color: #0056b3; 
+}
+
+.filter-toggle {
+  display: none; /* Hide by default */
+  padding: 10px;
+  background-color: #6c757d; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-form {
+      display: none; /* Hide form by default on mobile */
+  }
+
+  .filter-toggle {
+      display: block; /* Show filter button on mobile */
+      margin-top: 10px; 
+  }
+
+  .search-container {
+      flex-direction: column; 
+  }
+
+  .search-form.active {
+      display: flex; /* Show the form when active */
+  }
+}
+
+/* Responsive styles for tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .search-container {
+      flex-direction: column; 
+      align-items: stretch;
+  }
+
+  .search-form {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+  }
+
+  .filter-item {
+    flex: 1; 
+    min-width: 200px; 
+  }
+
+  .filter-toggle {
+      display: none; /* Hide filter button on tablet */
+  }
+
+  /* Force display of the search form if filter is toggled */
+  .search-form.active {
+      display: flex; /* Show the form when active */
+  }
+}
+/* Responsive styles for desktop */
+@media (min-width: 1025px) {
+  .search-form {
+    flex-direction: row; /* Change to row for larger screens */
+    align-items: center; 
+    justify-content: space-between; /* Space items out */
+  }
+
+  .filter-item {
+    flex-direction: column; 
+    align-items: center; 
+    width: auto; 
+  }
+
+  .reset-button {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    margin-left: 20px; /* Space between button and form */
+  }
+}

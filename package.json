@@ -1,0 +1,66 @@
+{
+  "name": "angular-boilerplate-v17",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/**/*.ts\" \"src/**/*.html\" \"src/**/**/*.html\" \"src/**/*.scss\" \"src/**/**/*.scss\"",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "@angular/service-worker": "^18.2.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "primeng": "^17.18.10",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.0",
+    "@angular/cli": "^18.2.0",
+    "@angular/compiler-cli": "^18.2.0",
+    "@compodoc/compodoc": "^1.1.23",
+    "@types/jasmine": "~4.3.0",
+    "autoprefixer": "^10.4.16",
+    "husky": "^8.0.3",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^14.0.1",
+    "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.3",
+    "typescript": "~5.5.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,jsx,tsx,json,css,scss,md}": [
+      "npm run format",
+      "ng lint",
+      "git add"
+    ]
+  }
+}

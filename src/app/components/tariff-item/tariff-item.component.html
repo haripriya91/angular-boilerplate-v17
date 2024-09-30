@@ -1,0 +1,32 @@
+<div class="tariff-card">
+  <div class="tariff-number">{{ tariffNumber }}</div>
+  <div class="tariff-name">{{ tariff.name }}</div>
+  <div class="tariff-speed">
+    <div class="speed">
+      <span class="speed-label">Download</span>
+      <div class="icon-speed">
+        <i class="fas fa-download"></i>
+        <span class="speed-value">{{ tariff.downloadSpeed }} Mbit/s</span>
+      </div>
+    </div>
+    <div class="speed upload-speed">
+      <span class="speed-label">Upload</span>
+      <div class="icon-speed">
+        <i class="fas fa-upload"></i>
+        <span class="speed-value">{{ tariff.uploadSpeed }} Mbit/s</span>
+      </div>
+    </div>
+  </div>
+  <div class="tariff-benefits">
+    <ul>
+      <li *ngFor="let benefit of tariff.benefits">{{ benefit }}</li>
+    </ul>
+  </div>
+  <div class="tariff-price">
+    <div class="price">{{ tariff.price | currency:'EUR'}}</div>
+    <button class="tariff-button">
+      <span>To Tariff</span>
+      <span class="arrow-icon">→</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="tariff-list">
+
+    <app-search (searchFiltersChanged)="applyFilters($event)"></app-search>
+
+    <div *ngIf="filteredTariffs.length; else empty">
+        <ng-container *ngFor="let tariff of filteredTariffs;let i = index; trackBy: trackTariffById">
+            <app-tariff-item [tariff]="tariff" [tariffNumber]="i + 1"></app-tariff-item>
+        </ng-container>
+    </div>
+    <ng-template #empty>
+        <p>There are no items.</p>
+    </ng-template>
+
+</div>
