@@ -39,3 +39,10 @@ coverage/**
 # System files
 .DS_Store
 Thumbs.db
+
+# Cypress related artifacts
+cypress/screenshots/
+cypress/videos/
+
+# Cypress cache
+.cypress_cache/
